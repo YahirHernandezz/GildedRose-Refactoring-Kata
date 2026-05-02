@@ -24,39 +24,39 @@ class TestGildedRose:
 
     # --- AGED_BRIE ---
     def test_aged_brie_increases_quality(self):
-        items = [Item("AGED_BRIE", 5, 10)]
+        items = [Item("Aged Brie", 5, 10)]
         GildedRose(items).update_quality()
         assert items[0].quality == 11
 
     def test_quality_never_exceeds_50(self):
-        items = [Item("AGED_BRIE", 5, 50)]
+        items = [Item("Aged Brie", 5, 50)]
         GildedRose(items).update_quality()
         assert items[0].quality == 50
 
     # --- Sulfuras ---
     def test_sulfuras_never_changes(self):
-        items = [Item("SULFURAS", 0, 80)]
+        items = [Item("Sulfuras, Hand of Ragnaros", 0, 80)]
         GildedRose(items).update_quality()
         assert items[0].quality == 80
         assert items[0].sell_in == 0
 
     # --- Backstage passes ---
     def test_backstage_quality_increases_normally(self):
-        items = [Item("BACKSTAGE_PASSES", 15, 20)]
+        items = [Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)]
         GildedRose(items).update_quality()
         assert items[0].quality == 21
 
     def test_backstage_quality_plus2_near_concert(self):
-        items = [Item("BACKSTAGE_PASSES", 10, 20)]
+        items = [Item("Backstage passes to a TAFKAL80ETC concert", 10, 20)]
         GildedRose(items).update_quality()
         assert items[0].quality == 22
 
     def test_backstage_quality_plus3_close_to_concert(self):
-        items = [Item("BACKSTAGE_PASSES", 5, 20)]
+        items = [Item("Backstage passes to a TAFKAL80ETC concert", 5, 20)]
         GildedRose(items).update_quality()
         assert items[0].quality == 23
 
     def test_backstage_drops_to_zero_after_concert(self):
-        items = [Item("BACKSTAGE_PASSES", 0, 20)]
+        items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)]
         GildedRose(items).update_quality()
         assert items[0].quality == 0
