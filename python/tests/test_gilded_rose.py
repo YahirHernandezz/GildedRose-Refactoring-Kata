@@ -60,3 +60,19 @@ class TestGildedRose:
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)]
         GildedRose(items).update_quality()
         assert items[0].quality == 0
+
+    # --- Conjured ---
+    def test_conjured_degrades_twice_as_fast(self):
+        items = [Item("Conjured Mana Cake", 10, 20)]
+        GildedRose(items).update_quality()
+        assert items[0].quality == 18
+
+    def test_conjured_degrades_4_per_day_after_sell_date(self):
+        items = [Item("Conjured Mana Cake", 0, 20)]
+        GildedRose(items).update_quality()
+        assert items[0].quality == 16
+
+    def test_conjured_quality_never_goes_below_zero(self):
+        items = [Item("Conjured Mana Cake", 5, 1)]
+        GildedRose(items).update_quality()
+        assert items[0].quality == 0
