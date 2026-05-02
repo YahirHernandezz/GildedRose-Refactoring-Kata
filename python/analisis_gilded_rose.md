@@ -3,7 +3,7 @@
 ## Paso 1.2 — Preguntas sobre los requisitos
 
 **¿Cuántos tipos de ítems hay?**
-5 tipos: Normal, Aged Brie, Sulfuras, Backstage passes, Conjured.
+5 tipos: Normal, AGED_BRIE, Sulfuras, Backstage passes, Conjured.
 Cada uno tiene reglas distintas de actualización.
 
 **¿Qué significa sellIn y quality?**
@@ -23,7 +23,7 @@ Conjured. Degrada el doble de rápido que un ítem normal.
 
 - [x] Método demasiado largo (update_quality sin separación)
 - [x] Condicionales anidados (profundidad 4-5)
-- [x] Strings literales repetidos ("Aged Brie", "Sulfuras"...)
+- [x] Strings literales repetidos ("AGED_BRIE", "Sulfuras"...)
 - [x] Números mágicos (50, 80, 10, 5 sin nombre)
 - [x] Falta de abstracción (toda la lógica en un método)
 
