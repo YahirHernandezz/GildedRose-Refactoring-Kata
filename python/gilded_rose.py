@@ -4,6 +4,8 @@ BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert"
 
 MAX_QUALITY = 50
 MIN_QUALITY = 0
+BACKSTAGE_THRESHOLD_1 = 10
+BACKSTAGE_THRESHOLD_2 = 5
 
 
 class Item:
@@ -46,9 +48,9 @@ class GildedRose(object):
         item.sell_in -= 1
         if item.sell_in < 0:
             item.quality = MIN_QUALITY
-        elif item.sell_in < 5:
+        elif item.sell_in < BACKSTAGE_THRESHOLD_2:
             item.quality = min(MAX_QUALITY, item.quality + 3)
-        elif item.sell_in < 10:
+        elif item.sell_in < BACKSTAGE_THRESHOLD_1:
             item.quality = min(MAX_QUALITY, item.quality + 2)
         else:
             item.quality = min(MAX_QUALITY, item.quality + 1)
