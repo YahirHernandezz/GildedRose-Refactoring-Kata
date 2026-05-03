@@ -75,7 +75,7 @@ class UpdaterFactory:
         AGED_BRIE: AgedBrieUpdater,
         SULFURAS: SulfurasUpdater,
         BACKSTAGE_PASSES: BackstagePassUpdater,
-        CONJURED: ConjuredUpdater,
+        "Conjured Mana Cake": ConjuredUpdater,
     }
 
     @classmethod
