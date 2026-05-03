@@ -76,3 +76,19 @@ class TestGildedRose:
         items = [Item("Conjured Mana Cake", 5, 1)]
         GildedRose(items).update_quality()
         assert items[0].quality == 0
+
+    # --- Conjured (TDD) ---
+    def test_conjured_item_degrades_twice_as_fast_before_sell_date(self):
+        items = [Item("Conjured Mana Cake", 5, 20)]
+        GildedRose(items).update_quality()
+        assert items[0].quality == 18  # degrada 2 por día
+
+    def test_conjured_item_degrades_four_times_after_sell_date(self):
+        items = [Item("Conjured Mana Cake", 0, 20)]
+        GildedRose(items).update_quality()
+        assert items[0].quality == 16  # degrada 4 tras sell date
+
+    def test_conjured_quality_never_below_zero(self):
+        items = [Item("Conjured Mana Cake", 5, 1)]
+        GildedRose(items).update_quality()
+        assert items[0].quality == 0
